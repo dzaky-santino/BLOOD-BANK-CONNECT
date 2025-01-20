@@ -21,8 +21,6 @@ class UserSeeder extends Seeder
                 'password' => Hash::make('dzaky123'),
                 'role' => 'admin',
                 'image' => null,
-                'created_at' => '2024-05-20 01:44:12',
-                'updated_at' => '2024-05-20 01:44:12',
             ],
         ];
 
