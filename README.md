@@ -1,3 +1,99 @@
+# Blood Bank Connect
+
+**Blood Bank Connect** Blood Bank Connect merupakan website untuk melayani rumah sakit, pendonor, dan
+penerima darah. Bagi rumah sakit, website ini menyediakan database yang terorganisir
+dengan informasi lengkap, sehingga memudahkan pencarian pendonor yang sesuai dan
+juga mudah dalam pengelolaan stok darah. Lalu memudahkan pendonor mengetahui
+informasi kapan untuk melakukan donor darah serta membantu mendapatkan penerima
+darah dengan cepat karena rumah sakit dapat dengan mudah menemukan pendonor yang
+cocok.
+
+---
+
+## Cara Instalasi dan Penggunaan
+
+Berikut adalah langkah-langkah untuk menginstal dan menggunakan aplikasi ini:
+
+### 1. Clone Repository
+Clone repository ini ke direktori lokal Anda:
+```bash
+git clone https://github.com/dzaky-santino/blood-bank-connect.git
+```
+
+### 2. Masuk Ke Folder si-jaki
+```bash
+cd blood-bank-connect
+```
+
+### 3. Membuat File .env
+Copy file .env.example menjadi .env:
+```bash
+cp .env.example .env
+```
+Kemudian, sesuaikan konfigurasi database di file .env sesuai dengan pengaturan server lokal Anda.
+
+### 4. Instal Dependensi PHP
+Jalankan perintah berikut untuk menginstal dependensi PHP menggunakan Composer:
+```bash
+composer install
+```
+
+### 5. Instal Dependensi Frontend
+Pastikan Anda sudah menginstal Node.js dan npm. Kemudian jalankan perintah berikut untuk menginstal dependensi frontend:
+```bash
+npm install
+```
+
+### 6. Generate Application Key
+Generate application key Laravel untuk aplikasi Anda:
+```bash
+php artisan key:generate
+```
+### 7. Migrasi dan Seeder
+Lakukan migrasi database dan jalankan seeder untuk mengisi data awal aplikasi:
+```bash
+php artisan migrate --seed
+```
+
+### 8. Menambahkan Akun Admin
+Seeder default hanya membuat akun pengguna (User). Anda dapat menambahkan akun admin dengan cara berikut:
+1. Buka file database/seeders/UserSeeder.php 
+2. Tambahkan kode berikut:
+
+```php
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+
+User::create([
+    'name' => 'Admin',
+    'email' => 'admin@gmail.com',
+    'password' => Hash::make('admin123'),
+    'role' => 'admin',
+    'image' => null,
+]);
+```
+
+3. Setelah menambahkan kode, jalankan ulang seeder:
+```bash
+php artisan db:seed
+```
+
+### 9. Compile Asset Frontend
+Setelah semua dependensi frontend terinstal, jalankan perintah berikut untuk meng-compile asset:
+```bash
+npm run dev
+```
+
+### 10. Jalankan Server Lokal
+Jalankan server lokal untuk melihat website:
+```bash
+php artisan serve
+```
+Website dapat diakses melalui URL:
+```arduino
+http://127.0.0.1:8000
+```
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
